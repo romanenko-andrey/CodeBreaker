@@ -9,7 +9,7 @@ module RavCodebreaker
     def initialize(level = :expert)
       @secret_code = ''
       @turns_left = 0
-      @level = level
+      TURNS_COUNT.keys.include?(level) ? @level = level : @level = :expert
       @score = []
     end
 
@@ -38,7 +38,12 @@ module RavCodebreaker
       show_results
     end
 
-    private
+    def again?
+      puts 'Do you want to play again (Y or N)'
+      gets =~ /y|Y/
+    end
+
+    #private
 
     def welcome_message
       puts '='*80
@@ -90,17 +95,11 @@ module RavCodebreaker
     end
 
     def show_game_over_message
-      puts 'Sorry, you lose the game :('
-      puts "The secret code was #{@secret_code}."
+      puts "Sorry, you lose the game :(\nThe secret code was #{@secret_code}."
     end
 
     def show_winner_message
       puts 'We congratulate you on your victory!!!'
-    end
-
-    def again?
-      puts 'Do you want to play again (Y or N)'
-      gets =~ /n|N/
     end
 
     def show_hint?
@@ -130,10 +129,10 @@ module RavCodebreaker
 
     def show_results
       @score.sort_by!{|player| player[:turns]}
-      format_str = "| %02s | %10s | %10s | %5s | %5s |"
-      format_str_length = 48
+      format_str = "| %02s | %12s | %10s | %5s | %5s |"
+      format_str_length = 50
       puts '-' * format_str_length
-      puts format_str % ['##', 'gamer name', 'game level', 'turns', 'hints']
+      puts format_str % %w(## player\ name game\ level turns hints)
       puts '-' * format_str_length
       @score.each_with_index do |player, index|
         arr = [index + 1] + player.values
@@ -143,7 +142,7 @@ module RavCodebreaker
     end
 
     def save_results
-      puts "Do you want to save your results (Y/N)?"
+      puts '"Do you want to save your results (Y/N)?'
       return if gets !~ /y|Y/
       player = {}
       begin

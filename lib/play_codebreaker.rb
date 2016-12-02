@@ -1,9 +1,3 @@
-#require 'rav_codebreaker'
-require_relative './rav_codebreaker.rb'
+require 'rav_codebreaker'
 
-module Test
-  extend RavCodebreaker
-end
-
-#RavCodebreaker.play(:beginner)
-RavCodebreaker::play(:beginner)
+RavCodebreaker.play(:beginner)

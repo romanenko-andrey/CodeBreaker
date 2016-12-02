@@ -6,8 +6,7 @@ module RavCodebreaker
     begin
       game = Game.new(level)
       game.play
-    end until game.again?
-    #save results to file and show statistic
+    end while game.again?
   end
 end
 
