@@ -1,0 +1,53 @@
+RavCodebreaker::Game
+  #Start
+    generates secret code
+    saves 4 numbers secret code
+    saves secret code with numbers from 1 to 6
+    generates uniq secret code for different games
+    with Error level
+      starts with Master Level settings
+    with Beginner level
+      gives up to 20 attempts to guess the secret code
+      gives up to 2 hints to guess the secret code
+    with Master level
+      gives up to 20 attempts to guess the secret code
+      gives up to 2 hints to guess the secret code
+    with Expert level
+      gives up to 10 attempts to guess the secret code
+      no gives hints to guess the secret code
+  #decode_offer
+    for secret code 1234 and offer 3333 must be "+"
+    for secret code 1111 and offer 3333 must be ""
+    for secret code 1234 and offer 2122 must be "--"
+    for secret code 1234 and offer 4216 must be "+--"
+    for secret code 1234 and offer 4321 must be "----"
+    for secret code 1122 and offer 1221 must be "++--"
+    for secret code 1313 and offer 3412 must be "+-"
+  #again?
+    return false if a gamer enter N
+    return true if a gamer enter Y
+    return false if a gamer enter empty string
+  #test_offer
+    decrease @turns_left variable after each test
+    decode gamer's inputs and prints decoding result to console
+  #format_error?
+    return false if code-breakers answer has correct format
+    return true if code-breakers answer has less then 4 numbers
+    return true if code-breakers answer has more then 4 numbers
+    return true if code-breakers answer contains incorrect numbers
+    return false if code-breakers answer equal 'H' or 'h'
+  #play with Beginner level
+    finish the game after enter the correct answer
+    finish the game after 20 failure attempts
+    gives 2 hints for help
+  #play with Master level
+    finish the game after enter the correct answer
+    finish the game after 15 failure attempts
+    gives 1 hints for help
+  #play with Expert level
+    finish the game after enter the correct answer
+    finish the game after 10 failure attempts
+    gives 0 hints for help
+
+Finished in 0.12108 seconds (files took 2.02 seconds to load)
+37 examples, 0 failures
