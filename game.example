@@ -1,50 +1,40 @@
 ================================================================================
 Welcome to play the CodeBreaker Game!!!
 ================================================================================
-Try to guess the secret code! You have 10 attempts and 0 hints. Good luck!
-Enter you four numbers code (from 1 to 6), please (or Q - for exit, H - for hint):
-h
-Sorry, but you have not any hints :(
-Try to guess the secret code! You have 10 attempts and 0 hints. Good luck!
+
+Try to guess the secret code!
+You have 20 attempts and 2 hints. Good luck!
 Enter you four numbers code (from 1 to 6), please (or Q - for exit, H - for hint):
 1111
-You result is ""!
-Try to guess the secret code! You have 9 attempts and 0 hints. Good luck!
+You result is "++"!
+Try to guess the secret code!
+You have 19 attempts and 2 hints. Good luck!
 Enter you four numbers code (from 1 to 6), please (or Q - for exit, H - for hint):
-2222
-You result is ""!
-Try to guess the secret code! You have 8 attempts and 0 hints. Good luck!
+h
+I exactly know that a number 6 is at position #3 (remember, it starts from 0).
+
+Try to guess the secret code!
+You have 19 attempts and 1 hints. Good luck!
 Enter you four numbers code (from 1 to 6), please (or Q - for exit, H - for hint):
-3333
-You result is "+"!
-Try to guess the secret code! You have 7 attempts and 0 hints. Good luck!
+1126
+You result is "+++"!
+Try to guess the secret code!
+You have 18 attempts and 1 hints. Good luck!
 Enter you four numbers code (from 1 to 6), please (or Q - for exit, H - for hint):
-3444
-You result is "+-"!
-Try to guess the secret code! You have 6 attempts and 0 hints. Good luck!
-Enter you four numbers code (from 1 to 6), please (or Q - for exit, H - for hint):
-4355
-You result is "--"!
-Try to guess the secret code! You have 5 attempts and 0 hints. Good luck!
-Enter you four numbers code (from 1 to 6), please (or Q - for exit, H - for hint):
-6643
-You result is "++--"!
-Try to guess the secret code! You have 4 attempts and 0 hints. Good luck!
-Enter you four numbers code (from 1 to 6), please (or Q - for exit, H - for hint):
-6634
+1136
 You result is "++++"!
 We congratulate you on your victory!!!
 "Do you want to save your results (Y/N)?
 y
 Enter your name, please...
-Kiril
+Henry
 --------------------------------------------------
 | ## |  player name | game level | turns | hints |
 --------------------------------------------------
-|  1 |         John |   beginner |     5 |     1 |
-|  2 |         roll |   beginner |     5 |     2 |
-|  3 |        Kiril |     expert |     7 |     0 |
-|  4 |       Andrey |   beginner |     8 |     0 |
+|  1 |        Henry |   beginner |     3 |     1 |
+|  2 |        Kiril |   beginner |     3 |     2 |
+|  3 |       Andrey |     expert |     5 |     0 |
+|  4 |        Semen |   beginner |     6 |     2 |
 --------------------------------------------------
 Do you want to play again (Y or N)
 n

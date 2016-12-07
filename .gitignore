@@ -1,0 +1,6 @@
+/.bundle
+.rspec
+/tmp
+/pkg
+/.score.dat
+

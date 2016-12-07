@@ -4,4 +4,4 @@ module Test
   extend RavCodebreaker
 end
 
-RavCodebreaker::play('beginner')
+RavCodebreaker::play(:beginner)
