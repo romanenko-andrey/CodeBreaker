@@ -33,11 +33,7 @@ module RavCodebreaker
 
       it 'finish the game after enter a correct answer' do
         allow(beginner_game).to receive(:gets).and_return('1234')
-     #   allow(beginner_game).to receive(:win?).and_return(true)
-        
-      #  allow(instance_variable_get(:@game)).to receive(:win?).and_return(true)
         allow_any_instance_of(Game).to receive(:win?).and_return(true)
-
         expect{beginner_game.play}.to output(/We congratulate you on your victory/).to_stdout
       end
 
