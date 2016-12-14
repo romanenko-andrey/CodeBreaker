@@ -16,7 +16,6 @@ module RavCodebreaker
       @secret_code = Array.new(4){rand(1..6)}*''
       @turns_left = TURNS_COUNT[@level]
       @hints_left = HINTS_COUNT[@level]
-      @offer = '6666'
     end
 
     def decode_offer

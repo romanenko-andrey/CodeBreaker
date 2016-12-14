@@ -9,31 +9,33 @@ module RavCodebreaker
     end
 
     def play
-      @game.start
       welcome_message
-      loop do
-        puts @game.format_error? ? incorrect_message : invitation_message
+      @game.start   
+      begin
         get_offer
-        exit if @game.exit?
-        show_hint if @game.show_hint?
-        next if @game.show_hint? || @game.format_error?
-        show_result_message
-        show_winner_message if win?
-        @game.next_turn 
-        show_gameover_message if @game.game_over?
-        break if win? || @game.game_over?
-      end
-      load_scores_from_file
-      save_results
-      show_results
+        case 
+          when @game.exit?
+            exit
+          when @game.show_hint?
+            show_hint
+            next
+          when @game.format_error?
+            show_incorrect_message
+            next
+          when @game.win?
+            show_winner_message
+          else
+            show_result_message
+            @game.next_turn 
+            show_gameover_message if @game.game_over?
+        end
+      end until @game.win? || @game.game_over?
+      save_and_show_results
     end
 
     def get_offer
+      show_invitation_message      
       @game.offer = gets.chomp
-    end
-
-    def win?
-      @game.win?
     end
 
     def again?
@@ -47,18 +49,18 @@ module RavCodebreaker
       puts '='*80
     end
 
-    def invitation_message
-      "Try to guess the secret code!\n"+
+    def show_invitation_message
+      puts "Try to guess the secret code!\n"+
       "You have #{@game.turns_left} attempts and #{@game.hints_left} hints. Good luck!\n" +
       "Enter you four numbers code (from 1 to 6), please (or Q - for exit, H - for hint):"
     end
 
-    def incorrect_message
-      "\nincorrect number format, try again, please..."
+    def show_incorrect_message
+      puts "\nincorrect number format, try again, please..."
     end
 
     def show_result_message
-       puts "You result is \"#{@game.decode_offer}\"!".green
+      puts "You result is \"#{@game.decode_offer}\"!".green
     end
 
     def show_gameover_message
@@ -119,5 +121,12 @@ module RavCodebreaker
       @score << player
       save_scores_to_file
     end
+
+    def save_and_show_results
+      load_scores_from_file
+      save_results
+      show_results
+    end
+
   end
 end

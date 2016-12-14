@@ -79,7 +79,13 @@ module RavCodebreaker
                {secret: '1234', offer: '4216', decode: '+--'},
                {secret: '1234', offer: '4321', decode: '----'},
                {secret: '1122', offer: '1221', decode: '++--'},
-               {secret: '1313', offer: '3412', decode: '+-'}]
+               {secret: '1313', offer: '3412', decode: '+-'},
+               {secret: '1243', offer: '1234', decode: '++--'},
+               {secret: '4444', offer: '4111', decode: '+'},
+               {secret: '4611', offer: '1466', decode: '---'},
+               {secret: '5451', offer: '4445', decode: '+-'},
+               {secret: '5432', offer: '2345', decode: '----'},
+               {secret: '5556', offer: '1115', decode: '-'}]
       let (:game) { Game.new }
       tests.each do |test|
         it "for secret code #{test[:secret]} and offer #{test[:offer]} must be \"#{test[:decode]}\"" do

@@ -33,7 +33,11 @@ module RavCodebreaker
 
       it 'finish the game after enter a correct answer' do
         allow(beginner_game).to receive(:gets).and_return('1234')
-        allow(beginner_game).to receive(:win?).and_return(true)
+     #   allow(beginner_game).to receive(:win?).and_return(true)
+        
+      #  allow(instance_variable_get(:@game)).to receive(:win?).and_return(true)
+        allow_any_instance_of(Game).to receive(:win?).and_return(true)
+
         expect{beginner_game.play}.to output(/We congratulate you on your victory/).to_stdout
       end
 
@@ -53,7 +57,7 @@ module RavCodebreaker
       end
     end
 
-    describe '#play with Master level', skip:false do
+    describe '#play with Master level' do
       subject(:master_game){ Console.new(:master) }
 
       before do
@@ -63,7 +67,7 @@ module RavCodebreaker
 
       it 'finish the game after enter a correct answer' do
         allow(master_game).to receive(:gets).and_return('1234')
-        allow(master_game).to receive(:win?).and_return(true)
+        allow_any_instance_of(Game).to receive(:win?).and_return(true)
         expect{master_game.play}.to output(/We congratulate you on your victory/).to_stdout
       end
 
@@ -81,7 +85,7 @@ module RavCodebreaker
       end
     end
 
-    describe '#play with Expert level', skip:false do
+    describe '#play with Expert level' do
       subject(:expert_game){ Console.new(:expert) }
 
       before do
@@ -91,7 +95,7 @@ module RavCodebreaker
 
       it 'finish the game after enter a correct answer' do
         allow(expert_game).to receive(:gets).and_return('1234')
-        allow(expert_game).to receive(:win?).and_return(true)   
+        allow_any_instance_of(Game).to receive(:win?).and_return(true)
         expect{expert_game.play}.to output(/We congratulate you on your victory/).to_stdout
       end
 
